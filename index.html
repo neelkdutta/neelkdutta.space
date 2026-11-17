@@ -284,7 +284,6 @@ footer kbd{border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-s
   <a class="planet" href="#journey"><span class="tip">flight path</span></a>
   <a class="planet" href="#dive"><span class="tip">off the clock</span></a>
   <a class="planet" href="#travel"><span class="tip">travel</span></a>
-  <a class="planet" href="#music"><span class="tip">on repeat</span></a>
   <a class="planet" href="#crew"><span class="tip">friends</span></a>
   <a class="planet" href="#contact"><span class="tip">say hi</span></a>
 </nav>
@@ -423,20 +422,11 @@ footer kbd{border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-s
   </div>
 </section>
 
-<!-- MUSIC -->
-<section id="music">
-  <div class="wrap">
-    <p class="eyebrow reveal">06 · on repeat</p>
-    <h2 class="reveal">Indie rock, mostly</h2>
-    <p class="lead reveal">I generally listen to indie and indie rock.</p>
-  </div>
-</section>
-
 <!-- CREW -->
 <section id="crew">
   <div class="wrap">
     <div class="crew reveal">
-      <p class="eyebrow">07 · friends</p>
+      <p class="eyebrow">06 · friends</p>
       <h2>The people around me</h2>
       <p>The thing I care about most isn't work. It's my friends, and the people who've looked out for me. They keep me grounded and make everything better. If you're one of them: thank you.</p>
       <div class="crew-ph"><div class="ph"><span><b>📸</b>photo: friends</span></div><div class="ph"><span><b>🎉</b>photo: a good night out</span></div><div class="ph"><span><b>🏕️</b>photo: a trip together</span></div></div>
@@ -447,7 +437,7 @@ footer kbd{border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-s
 <!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
-    <p class="eyebrow reveal">08 · contact</p>
+    <p class="eyebrow reveal">07 · contact</p>
     <h2 class="reveal">Say <span class="grad">hi</span></h2>
     <p class="lead reveal" style="margin:0 auto">If you want to talk about space, diving, music, or skiing, I'd like that.</p>
     <div class="socials reveal">
@@ -495,7 +485,7 @@ $('#launchBtn').addEventListener('click',()=>{
 });
 
 /* ---------- scroll: progress rocket, planets, reveal, depth ---------- */
-const fill=$('.track .fill'),rk=$('.track .rk'),secIds=['hero','mission','work','journey','dive','travel','music','crew','contact'];
+const fill=$('.track .fill'),rk=$('.track .rk'),secIds=['hero','mission','work','journey','dive','travel','crew','contact'];
 const navs=$$('.planet');
 function onScroll(){
   const max=document.documentElement.scrollHeight-innerHeight,p=max>0?scrollY/max:0;
