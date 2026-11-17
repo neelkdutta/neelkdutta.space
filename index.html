@@ -180,12 +180,12 @@ p.lead{font-size:clamp(19px,2vw,23px);color:#dcd7ff;max-width:680px}
 .wp.pop-down .pop::after{top:auto;bottom:100%;border:6px solid transparent;border-bottom-color:#16133a}
 .wp.pop-left.pop-down .pop{left:auto;right:calc(100% + 14px);bottom:50%;top:auto;transform:translateY(50%)}
 .wp.pop-left.pop-down .pop::after{top:50%;bottom:auto;left:100%;border:6px solid transparent;border-left-color:#16133a}
-.traj.vert .wp .pop,.traj.vert .wp.pop-left .pop,.traj.vert .wp.pop-down .pop,.traj.vert .wp.pop-left.pop-down .pop{left:0;right:auto;top:calc(100% + 8px);bottom:auto;transform:none;max-width:min(280px,calc(100vw - 72px))}
+.traj.vert .wp .pop,.traj.vert .wp.pop-left .pop,.traj.vert .wp.pop-down .pop,.traj.vert .wp.pop-left.pop-down .pop{left:0;right:auto;top:calc(100% + 8px);bottom:auto;transform:none;max-width:min(280px,calc(100vw - 72px));font-size:13px;padding:8px 10px}
 .traj.vert .wp .pop::after,.traj.vert .wp.pop-left .pop::after,.traj.vert .wp.pop-down .pop::after,.traj.vert .wp.pop-left.pop-down .pop::after{top:-6px;left:16px;bottom:auto;transform:none;border:6px solid transparent;border-bottom-color:#16133a}
 .stage-notes{margin:10px 0 0;padding:0 0 0 1.15em;color:#cfc9f5;font-size:16px;line-height:1.45;max-width:760px}
 .stage-notes li{margin:4px 0}
 .stage-card.future{opacity:.72}
-.stage-card.future h3{color:var(--mute);font-weight:600}
+.stage-card.future h3{color:var(--mute);font-weight:600;margin-bottom:16px}
 .stage-card.future .stage-emo{background:transparent;border-style:dashed;color:#7d77ad;font:700 18px var(--mono)}
 .stage-card.future .stage-top{display:none}
 #stageText:empty{display:none}
@@ -315,7 +315,7 @@ footer kbd{border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-s
 
 /* RESPONSIVE */
 @media (max-width:900px){
-  section{padding:90px 0}
+  section{padding:90px 0 130px}
   .hero-grid,.globe-wrap,.music-grid,.roots{grid-template-columns:1fr}
   .orbit-art{max-width:190px;order:-1;margin-top:0}
   #globe{max-width:320px}
@@ -410,7 +410,7 @@ footer kbd{border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-s
   <div class="wrap">
     <p class="eyebrow reveal">02 · work</p>
     <h2 class="reveal">Flight software <span class="grad">@ SpaceX</span></h2>
-    <p class="lead reveal">I write flight software for Starlink satellites at SpaceX, on the satellite bus team. I live in Seattle and work in Redmond.</p>
+    <p class="lead reveal">I write flight software for Starlink satellites at SpaceX. I live in Seattle and work in Redmond.</p>
     <div class="work-grid">
       <article class="card work-card reveal">
         <div class="glow" style="background:var(--cyan)"></div>
@@ -740,12 +740,12 @@ const wps=stages.map((st,i)=>{const b=document.createElement('button');b.classNa
   b.setAttribute('aria-label',st.future?'Next: (??)':`Stage ${i+1}: ${st.title}`);
   if(notes){b.setAttribute('aria-describedby',`pop-${i}`);b.setAttribute('aria-expanded','false')}
   b.addEventListener('click',e=>{e.stopPropagation();stopAuto();const wasOn=b.classList.contains('pop-on');closePops();go(i);if(st.notes&&st.notes.length&&!wasOn){b.classList.add('pop-on');b.setAttribute('aria-expanded','true')}
-    if(traj.classList.contains('vert')){const r=$('#stageCard').getBoundingClientRect();if(r.top<0)$('#stageCard').scrollIntoView({behavior:RM?'auto':'smooth',block:'nearest'})}});
+    if(traj.classList.contains('vert'))b.scrollIntoView({behavior:RM?'auto':'smooth',block:'center'});});
   traj.appendChild(b);return b});
 document.addEventListener('click',e=>{if(!e.target.closest('.wp'))closePops()});
-function tlayout(){const w=traj.clientWidth,vert=w<640,N=stages.length,h=vert?N*120+50:340;
+function tlayout(){const w=traj.clientWidth,vert=w<640,N=stages.length,h=vert?N*150+40:340;
   traj.style.height=h+'px';traj.classList.toggle('vert',vert);tsvg.setAttribute('width',w);tsvg.setAttribute('height',h);tsvg.setAttribute('viewBox',`0 0 ${w} ${h}`);
-  tpts=stages.map((_,i)=>{const t=i/(N-1);return vert?[34+Math.sin(i*1.25)*12,h-30-t*(h-60)]:[48+t*(w-96),h-96-Math.pow(t,1.6)*(h-150)]});
+  tpts=stages.map((_,i)=>{const t=i/(N-1);return vert?[34+Math.sin(i*1.25)*12,36+t*(h-72)]:[48+t*(w-96),h-96-Math.pow(t,1.6)*(h-150)]});
   let d=`M${tpts[0]}`;for(let i=0;i<N-1;i++){const p0=tpts[i-1]||tpts[i],p1=tpts[i],p2=tpts[i+1],p3=tpts[i+2]||p2;
     d+=` C${p1[0]+(p2[0]-p0[0])/6},${p1[1]+(p2[1]-p0[1])/6} ${p2[0]-(p3[0]-p1[0])/6},${p2[1]-(p3[1]-p1[1])/6} ${p2}`}
   tbase.setAttribute('d',d);tdone.setAttribute('d',d);ttotal=tbase.getTotalLength();
