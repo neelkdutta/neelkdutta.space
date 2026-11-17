@@ -112,7 +112,7 @@ p.lead{font-size:clamp(17px,1.5vw,20px);color:var(--soft);max-width:640px;line-h
 .mission-row p{color:var(--mute);font-size:16px;line-height:1.6}
 
 /* WORK */
-.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
+.work-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:48px;max-width:720px}
 .work-card{padding:32px;position:relative;overflow:hidden;transition:border-color .25s}
 .work-card:hover{border-color:rgba(255,255,255,.2)}
 .work-card .tag{display:inline-block;font:400 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border-radius:6px;background:rgba(197,176,135,.1);color:var(--accent)}
@@ -185,22 +185,7 @@ p.lead{font-size:clamp(17px,1.5vw,20px);color:var(--soft);max-width:640px;line-h
 #stageText:empty{display:none}
 
 /* DIVE */
-#dive{padding:0;overflow:clip;background:linear-gradient(180deg,transparent 0,#15191d 18%,#14181c 70%,transparent 100%)}
-#dive .inner{padding:150px 0 170px;position:relative}
-.depth{position:sticky;top:40vh;float:right;margin-right:-6px;width:84px;text-align:center;z-index:3;font-family:var(--mono)}
-.depth .val{font-size:22px;font-weight:600;color:var(--soft)}
-.depth .bar{width:3px;height:140px;margin:10px auto;border-radius:3px;background:rgba(255,255,255,.1);position:relative;overflow:hidden}
-.depth .bar i{position:absolute;top:0;left:0;right:0;height:0;background:var(--accent)}
-.depth small{font-size:10px;color:var(--mute);letter-spacing:.14em}
-.dive-step{max-width:620px;margin:0 0 120px}
-.dive-step .z{font:400 12px var(--mono);color:var(--accent);letter-spacing:.14em}
-.dive-step h3{font-size:clamp(24px,3vw,32px);margin:8px 0 10px;font-weight:600}
-.dive-step p{color:var(--soft)}
-.bubble{position:absolute;bottom:-20px;border-radius:50%;border:1px solid rgba(180,200,210,.22);background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.2),transparent 60%);animation:rise linear infinite;pointer-events:none;opacity:.55}
-@keyframes rise{to{transform:translateY(-110vh) translateX(20px);opacity:0}}
-.fish{position:absolute;font-size:22px;animation:swim 18s linear infinite;pointer-events:none;opacity:.45}
-@keyframes swim{from{transform:translateX(-10vw) scaleX(-1)}to{transform:translateX(110vw) scaleX(-1)}}
-.dive-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:620px}
+#dive{padding-bottom:0}
 
 /* SKI + GYM */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -227,50 +212,12 @@ p.lead{font-size:clamp(17px,1.5vw,20px);color:var(--soft);max-width:640px;line-h
 .flip.more .f{background:var(--card)}
 .flip.more .f b{font-size:15px;line-height:1.25;font-weight:600}
 
-/* MUSIC */
-.music-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.player{padding:26px;border-radius:16px;background:var(--card);border:1px solid var(--line);box-shadow:none;max-width:400px;width:100%;justify-self:center}
-.art{aspect-ratio:1;border-radius:12px;position:relative;overflow:hidden;display:grid;place-items:center;transition:background .6s}
-.art .vinyl{width:62%;aspect-ratio:1;border-radius:50%;background:repeating-radial-gradient(circle,#181818 0 2px,#222 2px 4px);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.4);animation:spin 4s linear infinite;animation-play-state:paused}
-@keyframes spin{to{transform:rotate(360deg)}}
-.player.playing .vinyl{animation-play-state:running}
-.art .vinyl i{width:34%;aspect-ratio:1;border-radius:50%;background:var(--accent,#c5b087);display:grid;place-items:center;font-style:normal;font-size:20px}
-.np{font:11px var(--mono);letter-spacing:.14em;color:var(--mute);margin-top:18px;display:flex;justify-content:space-between;align-items:center}
-.eq{display:flex;gap:3px;height:14px;align-items:flex-end}
-.eq i{width:2px;background:var(--accent);height:30%;border-radius:2px}
-.player.playing .eq i{animation:eq .9s ease-in-out infinite alternate}
-.eq i:nth-child(2){animation-delay:-.3s!important}.eq i:nth-child(3){animation-delay:-.6s!important}.eq i:nth-child(4){animation-delay:-.15s!important}
-@keyframes eq{from{height:20%}to{height:100%}}
-.player h3{font-size:24px;margin-top:6px;font-weight:600}
-.player .sub{color:var(--mute);font-size:15px}
-.prog{height:3px;background:rgba(255,255,255,.12);border-radius:3px;margin:18px 0 8px;overflow:hidden;cursor:pointer}
-.prog i{display:block;height:100%;width:0;background:var(--accent)}
-.times{display:flex;justify-content:space-between;font:11px var(--mono);color:var(--mute)}
-.ctrls{display:flex;justify-content:center;gap:18px;margin-top:14px;align-items:center}
-.ctrls button{background:none;border:0;color:var(--ink);font-size:20px;cursor:pointer;width:44px;height:44px;border-radius:50%;transition:.2s}
-.ctrls button:hover{background:rgba(255,255,255,.08)}
-.ctrls .pp{width:56px;height:56px;background:var(--ink);color:var(--bg);font-size:20px}
-.ctrls .pp:hover{background:var(--ink);transform:scale(1.04)}
-
-/* ROOTS */
-.roots{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-#usmap{width:100%;height:auto}
-#usmap .route{stroke-dasharray:6 8;animation:dash 1.6s linear infinite}
-@keyframes dash{to{stroke-dashoffset:-28}}
-.pin text{font:500 14px var(--mono);fill:var(--ink)}
-
 /* CREW */
 .crew{padding:56px 48px;text-align:center;border-radius:16px;background:var(--card);border:1px solid var(--line);position:relative;overflow:hidden}
 .crew h2{margin-top:10px}
 .crew p{margin:0 auto;max-width:680px;color:var(--soft);font-size:18px}
 .crew-ph{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
 .crew-ph .ph{min-height:150px}
-
-/* FACTS */
-.facts{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:36px 0;border-radius:0;border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:transparent}
-#fact{font-size:clamp(20px,2.4vw,28px);font-weight:500;line-height:1.35;min-height:3.4em;display:flex;align-items:center;transition:opacity .25s,transform .25s}
-#fact.swap{opacity:0;transform:translateY(8px)}
-.factn{font:12px var(--mono);color:var(--accent);letter-spacing:.14em}
 
 /* CONTACT */
 #contact{text-align:center;padding-bottom:80px}
@@ -297,7 +244,7 @@ footer kbd{border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-s
 /* RESPONSIVE */
 @media (max-width:900px){
   section{padding:100px 0 130px}
-  .globe-wrap,.music-grid,.roots{grid-template-columns:1fr}
+  .globe-wrap{grid-template-columns:1fr}
   #hero .wrap{max-width:none;margin-left:auto}
   #globe{max-width:320px}
   .mission-row{grid-template-columns:1fr}
@@ -309,25 +256,20 @@ footer kbd{border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-s
   .traj{margin-top:24px}
   .work-grid,.duo{grid-template-columns:1fr}
   .flips{grid-template-columns:repeat(2,1fr)}
-  .facts{grid-template-columns:1fr;padding:28px 0}
   .crew{padding:32px 22px}
   .crew-ph{grid-template-columns:1fr 1fr}.crew-ph .ph:last-child{display:none}
   .track{display:none}
   .planets{top:auto;bottom:14px;right:50%;transform:translateX(50%);flex-direction:row;gap:14px;padding:10px 16px;border-radius:999px;background:rgba(17,18,20,.86);backdrop-filter:blur(10px);border:1px solid var(--line)}
   .planet .tip{display:none}
-  .depth{width:60px;margin-right:-10px}.depth .val{font-size:18px}.depth .bar{height:100px}
-  .dive-step{max-width:calc(100% - 70px)}
-  .dive-photos{max-width:calc(100% - 70px)}
   #hero{padding-top:72px}
   .scroll-hint{display:none}
   footer{padding-bottom:110px}
 }
-@media (max-width:480px){body{font-size:16px}.dive-photos{grid-template-columns:1fr}.flip{height:136px}}
+@media (max-width:480px){body{font-size:16px}.flip{height:136px}}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
   .reveal{opacity:1;transform:none}
-  .fish,.bubble{display:none}
 }
 
 </style>
@@ -387,14 +329,8 @@ footer kbd{border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-s
       <article class="card work-card reveal">
         <span class="tag">Starlink</span>
         <h3>Starlink satellite flight software</h3>
-        <p>I work on star trackers, satellite cameras, tile cameras (which image Starship's heat shield), and other imaging products on the satellite bus. I've also worked on most of the other subsystems, including solar array actuators, propulsion, and power.</p>
-        <div class="chips"><span class="chip">Starlink</span><span class="chip">satellite bus</span><span class="chip">flight software</span><span class="chip">Redmond, WA</span></div>
-      </article>
-      <article class="card work-card reveal">
-        <span class="tag">Starlink</span>
-        <h3>Starlink satellites on Flight 12</h3>
-        <p>I was the software Responsible Engineer for the Starlink satellites on Starship Flight 12.</p>
-        <div class="chips"><span class="chip">Starlink</span><span class="chip">Flight 12</span><span class="chip">May 2026</span></div>
+        <p>I own optical bus software, including star trackers, satellite cameras, tile cameras, and other imaging products. I've contributed to systems all across the vehicle, like propulsion, power, and solar array actuators. I also work on console during missions.</p>
+        <div class="chips"><span class="chip">Starlink</span><span class="chip">optical bus</span><span class="chip">flight software</span><span class="chip">Redmond, WA</span></div>
       </article>
     </div>
     <div class="work-more reveal"><a class="btn ghost" href="#journey">How I got here ↓</a></div>
@@ -434,17 +370,15 @@ footer kbd{border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-s
 </section>
 
 <!-- DIVE / HOBBIES -->
-<section id="dive" aria-label="Off the clock: scuba, skiing and the gym">
-  <div class="wrap inner" id="diveInner">
-    <div class="depth" aria-hidden="true"><small>DEPTH</small><div class="val" id="depthVal">0m</div><div class="bar"><i id="depthBar"></i></div><small>30m</small></div>
+<section id="dive" aria-label="Off the clock: scuba, skiing and the gym" style="padding-bottom:0">
+  <div class="wrap">
     <p class="eyebrow reveal">04 · off the clock</p>
-    <h2 class="reveal">Scuba</h2>
-    <p class="lead reveal" style="margin-bottom:100px">I love being underwater. It's quiet and weightless, and a good way to get out of my head. Keep scrolling.</p>
-    <div class="dive-step reveal"><span class="z">0–10m · SUNLIGHT ZONE</span><h3>The first breath underwater</h3><p>That first breath still feels a little strange, in a good way. Everything goes quiet.</p></div>
-    <div class="dive-step reveal"><span class="z">10–20m · REEF ZONE</span><h3>On the reef</h3><p>The colors and the life down there still surprise me. It's one of my favorite places to be.</p>
-      <div class="dive-photos" style="margin-top:22px"><div class="ph"><span><b>📷</b>photo: scuba<br>(coming soon)</span></div><div class="ph"><span><b>🐠</b>photo: reef friends<br>(coming soon)</span></div></div>
+    <div class="card reveal" style="padding:30px;max-width:620px">
+      <p class="eyebrow">scuba</p>
+      <h3 style="font-size:34px;margin:10px 0 8px">Scuba</h3>
+      <p style="color:var(--soft)">I love diving. It's quiet down there, and a good way to get out of my head.</p>
+      <div class="ph" style="min-height:140px;margin-top:18px"><span><b>📷</b>photo: scuba</span></div>
     </div>
-    <div class="dive-step reveal"><span class="z">20–30m · THE DEEP BLUE</span><h3>Open water</h3><p>Further down, in the open blue, it gets very still. Slow breathing, not much to do but float.</p></div>
   </div>
 </section>
 
@@ -454,14 +388,14 @@ footer kbd{border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-s
       <div class="card reveal">
         <p class="eyebrow">skiing</p>
         <h3 style="font-size:34px;margin:10px 0 8px">Skiing</h3>
-        <p style="color:#cfc9f5">Living in Seattle means the mountains are close. I like a quiet day on snow, and ski trips with friends are how I like to spend winter.</p>
+        <p style="color:var(--soft)">Living in Seattle means the mountains are close. I like a quiet day on snow, and ski trips with friends are how I like to spend winter.</p>
         <div class="ph" style="min-height:140px;margin-top:18px"><span><b>🏔️</b>photo: skiing</span></div>
         <div class="slope" aria-hidden="true"><span class="skier">⛷️</span></div>
       </div>
       <div class="card reveal">
         <p class="eyebrow">gym</p>
         <h3 style="font-size:34px;margin:10px 0 8px">The gym</h3>
-        <p style="color:#cfc9f5">I go to the gym every day. It's a simple reset, and an hour I'm glad I have.</p>
+        <p style="color:var(--soft)">I go to the gym every day. It's a simple reset, and an hour I'm glad I have.</p>
         <div class="ph" style="min-height:140px;margin-top:18px"><span><b>🏋️</b>photo: the gym</span></div>
       </div>
     </div>
@@ -473,16 +407,17 @@ footer kbd{border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-s
   <div class="wrap">
     <p class="eyebrow reveal">05 · travel</p>
     <h2 class="reveal">A few <span class="grad">places</span> I've been</h2>
-    <p class="lead reveal">I travel a fair amount when I can. Spin the globe or flip a card if you like.</p>
+    <p class="lead reveal">I travel whenever I can. Here's most of where I've been.</p>
+    <p class="reveal" style="color:var(--mute);font:12px var(--mono);letter-spacing:.04em;margin-top:10px">8 countries: US, Canada, Mexico, Iceland, Switzerland, France, Morocco, India.</p>
     <div class="globe-wrap">
       <canvas id="globe" class="reveal" aria-label="Spinning globe with places I've been marked"></canvas>
       <div class="flips reveal">
         <button class="flip" data-place="iceland"><div class="in"><div class="f"><span class="fl">🇮🇸</span><div><b>Iceland</b><br><small>TAP TO FLIP</small></div></div><div class="b">Glaciers, volcanoes, and black-sand beaches. It felt a little otherworldly.</div></div></button>
         <button class="flip" data-place="switzerland"><div class="in"><div class="f"><span class="fl">🇨🇭</span><div><b>Switzerland</b><br><small>TAP TO FLIP</small></div></div><div class="b">Beautiful mountains, and the trains run on time.</div></div></button>
-        <button class="flip" data-place="italy"><div class="in"><div class="f"><span class="fl">🇮🇹</span><div><b>Italy</b><br><small>TAP TO FLIP</small></div></div><div class="b">Good food and good views.</div></div></button>
         <button class="flip" data-place="india"><div class="in"><div class="f"><span class="fl">🇮🇳</span><div><b>India</b><br><small>TAP TO FLIP</small></div></div><div class="b">Colorful, busy in the best way, and excellent food on every corner.</div></div></button>
-        <button class="flip" data-place="mexico"><div class="in"><div class="f"><span class="fl">🇲🇽</span><div><b>Mexico</b><br><small>TAP TO FLIP</small></div></div><div class="b">Warm weather, good food, and water I was happy to jump into.</div></div></button>
-        <button class="flip more"><div class="in"><div class="f"><span class="fl">🌍</span><div><b>+ France, Austria<br>&amp; a few more</b></div></div><div class="b">France and Austria too, and plenty more on the list.</div></div></button>
+        <button class="flip" data-place="mexico"><div class="in"><div class="f"><span class="fl">🇲🇽</span><div><b>Mexico</b><br><small>CABO · TAP TO FLIP</small></div></div><div class="b">Warm weather, good food, and water I was happy to jump into.</div></div></button>
+        <button class="flip" data-place="morocco"><div class="in"><div class="f"><span class="fl">🇲🇦</span><div><b>Morocco</b><br><small>TAP TO FLIP</small></div></div><div class="b">A few days in Marrakech. Warm, busy, and easy to wander.</div></div></button>
+        <button class="flip" data-place="canada"><div class="in"><div class="f"><span class="fl">🇨🇦</span><div><b>Canada</b><br><small>BANFF &amp; WHISTLER</small></div></div><div class="b">Banff and Whistler. Quiet mountains, and good days outside.</div></div></button>
       </div>
     </div>
   </div>
@@ -490,46 +425,10 @@ footer kbd{border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-s
 
 <!-- MUSIC -->
 <section id="music">
-  <div class="wrap music-grid">
-    <div>
-      <p class="eyebrow reveal">06 · on repeat</p>
-      <h2 class="reveal">Indie rock,<br>mostly</h2>
-      <p class="lead reveal">I generally listen to indie and indie rock.</p>
-    </div>
-    <div class="player reveal" id="player">
-      <div class="art" id="art"><div class="vinyl"><i id="vinylEmoji">🎸</i></div></div>
-      <div class="np"><span>NOW PLAYING</span><span class="eq"><i></i><i></i><i></i><i></i></span></div>
-      <h3 id="npArtist">Indie rock</h3>
-      <div class="sub" id="npSub">usually what's on</div>
-      <div class="prog" id="prog"><i id="progBar"></i></div>
-      <div class="times"><span id="tNow">0:00</span><span id="tEnd">3:42</span></div>
-      <div class="ctrls">
-        <button class="pp" id="ppBtn" aria-label="Play">▶</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ROOTS -->
-<section id="roots">
-  <div class="wrap roots">
-    <div>
-      <p class="eyebrow reveal">07 · roots</p>
-      <h2 class="reveal">I grew up moving around</h2>
-      <p class="lead reveal">I lived all over the US, and went to high school in the Chicago suburbs. Then I went to the University of Michigan, spent a summer interning in Long Beach, and now I live in Seattle, between the mountains and the water.</p>
-    </div>
-    <svg id="usmap" class="reveal" viewBox="0 0 520 320" aria-label="Path from all over the US to Chicago, Ann Arbor, Long Beach and Seattle">
-      <defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#c5b087"/><stop offset="1" stop-color="#c5b087"/></linearGradient></defs>
-      <path d="M40 90 L70 40 L200 30 L330 40 L420 50 L470 40 L490 80 L470 120 L455 170 L470 230 L440 260 L400 250 L360 270 L330 300 L300 270 L250 270 L210 290 L170 250 L110 240 L70 220 L40 170 Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
-      <g fill="rgba(255,255,255,.35)"><circle cx="150" cy="200" r="4"/><circle cx="420" cy="200" r="4"/><circle cx="260" cy="230" r="4"/><circle cx="440" cy="130" r="4"/><circle cx="130" cy="130" r="4"/></g>
-      <path class="route" d="M150 200 Q 280 260 260 230 T 420 200 Q 470 160 440 130 Q 400 100 345 112" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
-      <path class="route" d="M345 112 Q 365 92 388 102 Q 250 200 92 214 Q 40 140 75 62" fill="none" stroke="url(#rg)" stroke-width="3"/>
-      <g class="pin"><circle cx="345" cy="112" r="6" fill="#c5b087"/><text x="333" y="104" text-anchor="end">Chicago burbs</text><text x="333" y="88" text-anchor="end" style="font-weight:400;fill:#8f8e89;font-size:11px">high school era</text></g>
-      <g class="pin"><circle cx="388" cy="102" r="6" fill="#c5b087"/><text x="400" y="80" text-anchor="middle">Ann Arbor</text><text x="400" y="64" text-anchor="middle" style="font-weight:400;fill:#8f8e89;font-size:11px">college</text></g>
-      <g class="pin"><circle cx="92" cy="214" r="6" fill="#c5b087"/><text x="72" y="242">Long Beach</text><text x="72" y="258" style="font-weight:400;fill:#8f8e89;font-size:11px">summer '22 @ Zwift</text></g>
-      <g class="pin"><circle cx="75" cy="62" r="8" fill="#c5b087"/><text x="92" y="60">Seattle</text><text x="92" y="76" style="font-weight:400;fill:#8f8e89;font-size:11px">home for now</text></g>
-      <text x="215" y="262" style="font:11px 'Space Mono',monospace;fill:#8f8e89">…and lots of stops in between</text>
-    </svg>
+  <div class="wrap">
+    <p class="eyebrow reveal">06 · on repeat</p>
+    <h2 class="reveal">Indie rock, mostly</h2>
+    <p class="lead reveal">I generally listen to indie and indie rock.</p>
   </div>
 </section>
 
@@ -537,7 +436,7 @@ footer kbd{border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-s
 <section id="crew">
   <div class="wrap">
     <div class="crew reveal">
-      <p class="eyebrow">08 · friends</p>
+      <p class="eyebrow">07 · friends</p>
       <h2>The people around me</h2>
       <p>The thing I care about most isn't work. It's my friends, and the people who've looked out for me. They keep me grounded and make everything better. If you're one of them: thank you.</p>
       <div class="crew-ph"><div class="ph"><span><b>📸</b>photo: friends</span></div><div class="ph"><span><b>🎉</b>photo: a good night out</span></div><div class="ph"><span><b>🏕️</b>photo: a trip together</span></div></div>
@@ -545,23 +444,10 @@ footer kbd{border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-s
   </div>
 </section>
 
-<!-- FACTS -->
-<section id="facts" style="padding-top:20px">
-  <div class="wrap">
-    <div class="card facts reveal">
-      <div>
-        <div class="factn" id="factN">A NOTE 01</div>
-        <div id="fact" aria-live="polite">The best thing in my life is my friends.</div>
-      </div>
-      <button class="btn" id="factBtn">Another one</button>
-    </div>
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
-    <p class="eyebrow reveal">09 · contact</p>
+    <p class="eyebrow reveal">08 · contact</p>
     <h2 class="reveal">Say <span class="grad">hi</span></h2>
     <p class="lead reveal" style="margin:0 auto">If you want to talk about space, diving, music, or skiing, I'd like that.</p>
     <div class="socials reveal">
@@ -616,72 +502,54 @@ function onScroll(){
   fill.style.height=(p*100)+'%';rk.style.bottom=(p*100)+'%';
   let cur=0;secIds.forEach((id,i)=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<innerHeight*.45)cur=i});
   navs.forEach((n,i)=>n.classList.toggle('active',i===cur));
-  const d=$('#diveInner').getBoundingClientRect();const dp=Math.min(1,Math.max(0,(innerHeight*.5-d.top)/(d.height-innerHeight*.3)));
-  $('#depthVal').textContent=Math.round(dp*30)+'m';$('#depthBar').style.height=(dp*100)+'%';
 }
 addEventListener('scroll',onScroll,{passive:true});onScroll();
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -5% 0px'});
 $$('.reveal').forEach(el=>io.observe(el));
 
-/* ---------- bubbles + fish ---------- */
-if(!RM){const dv=$('#dive');for(let i=0;i<8;i++){const b=document.createElement('span');b.className='bubble';const s=6+Math.random()*14;b.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${10+Math.random()*10}s;animation-delay:${-Math.random()*14}s`;dv.appendChild(b)}
-  ['🐠','🐢'].forEach((f,i)=>{const e=document.createElement('span');e.className='fish';e.textContent=f;e.style.top=(28+i*28)+'%';e.style.animationDuration=(16+i*6)+'s';e.style.animationDelay=(-i*8)+'s';dv.appendChild(e)})}
-
 /* ---------- globe ---------- */
 const gc=$('#globe'),g=gc.getContext('2d');let gs,rot=-0.3,vel=RM?0:.004,drag=false,lx=0;
-const places=[['Iceland',64.9,-19],['France',46.6,2.2],['Italy',42.8,12.5],['Switzerland',46.8,8.2],['Austria',47.5,14.5],['Mexico',23.6,-102.5],['India',21,78],['Seattle',47.6,-122.3],['Chicago',41.9,-87.6]];
+const places=[
+  ['Orlando',28.54,-81.38],['Atlanta',33.75,-84.39],['Pittsburgh',40.44,-79.99],['Dallas',32.78,-96.80],
+  ['Bloomington',39.17,-86.53],['Champaign',40.12,-88.24],['Chapel Hill',35.91,-79.06],['College Park',38.99,-76.94],
+  ['San Diego',32.72,-117.16],['Milwaukee',43.04,-87.91],['Smokies',35.61,-83.49],['New Orleans',29.95,-90.07],
+  ['Hawthorne',33.92,-118.35],['Ann Arbor',42.28,-83.74],['Leavenworth',47.60,-120.66],['Chicago',41.88,-87.63],
+  ['Madison',43.07,-89.40],['New York',40.71,-74.01],['New Brunswick',40.49,-74.45],['Scottsdale',33.49,-111.93],
+  ['Cleveland',41.50,-81.69],['San Francisco',37.77,-122.42],['Williamsburg',37.27,-76.71],['Olympic',48.12,-123.43],
+  ['Crater Lake',42.94,-122.11],['Starbase',25.98,-97.16],['Cincinnati',39.10,-84.51],['Honolulu',21.31,-157.86],
+  ['Las Vegas',36.17,-115.14],['Miami',25.76,-80.19],['Lake Chelan',47.84,-120.02],['Napa',38.50,-122.29],
+  ['Kalama',46.01,-122.84],['Canton',42.31,-83.48],['Seattle',47.61,-122.33],
+  ['Whistler',50.12,-122.95],['Banff',51.18,-115.57],['Cabo',22.89,-109.91],['Reykjavik',64.15,-21.94],
+  ['Marrakech',31.63,-8.01],['Kolkata',22.57,88.36],['Geneva',46.20,6.14],['Zermatt',46.02,7.75],
+  ['Interlaken',46.69,7.86],['Chamonix',45.92,6.87]
+];
 // rough land blobs (lat,lon,radius deg) for a playful dotted globe
-const land=[[50,-100,22],[38,-95,16],[60,-120,14],[65,-150,10],[70,-45,10],[23,-102,9],[15,-88,6],[-10,-60,18],[-30,-63,12],[-45,-70,7],[50,15,14],[42,0,8],[60,40,18],[55,90,22],[62,130,18],[35,105,18],[22,78,12],[28,60,10],[10,20,20],[-5,25,16],[-25,25,12],[15,45,7],[-25,135,16],[37,138,5],[64.9,-19,3],[-2,115,8]];
+const land=[[50,-100,22],[38,-95,16],[60,-120,14],[65,-150,10],[70,-45,10],[23,-102,9],[15,-88,6],[-10,-60,18],[-30,-63,12],[-45,-70,7],[50,15,14],[42,0,8],[60,40,18],[55,90,22],[62,130,18],[35,105,18],[22,78,12],[28,60,10],[10,20,20],[-5,25,16],[-25,25,12],[15,45,7],[-25,135,16],[37,138,5],[64.9,-19,3],[-2,115,8],[21.3,-157.8,3],[31.6,-8,4]];
 function sizeG(){const r=gc.getBoundingClientRect();gs=r.width||400;gc.width=gs*DPR;gc.height=gs*DPR;g.setTransform(DPR,0,0,DPR,0,0)}
 function proj(lat,lon){const R=gs*.42,la=lat*Math.PI/180,lo=lon*Math.PI/180+rot;const x=Math.cos(la)*Math.sin(lo),y=Math.sin(la),z=Math.cos(la)*Math.cos(lo);return{x:gs/2+R*x,y:gs/2-R*y*.98,z}}
 const dots=[];for(let lat=-80;lat<=80;lat+=3.5)for(let lon=-180;lon<180;lon+=3.5*1/Math.max(.3,Math.cos(lat*Math.PI/180))){if(land.some(([a,b,r])=>{let dl=Math.abs(lon-b);dl=Math.min(dl,360-dl);return Math.hypot(lat-a,dl*Math.cos(lat*Math.PI/180))<r}))dots.push([lat,lon])}
-let gt=0;function drawG(){gt++;const R=gs*.42;g.clearRect(0,0,gs,gs);
+function drawG(){const R=gs*.42;g.clearRect(0,0,gs,gs);
   const gr=g.createRadialGradient(gs*.4,gs*.35,R*.1,gs/2,gs/2,R*1.1);gr.addColorStop(0,'rgba(50,52,58,.55)');gr.addColorStop(1,'rgba(20,21,24,.2)');
   g.fillStyle=gr;g.beginPath();g.arc(gs/2,gs/2,R,0,6.28);g.fill();g.strokeStyle='rgba(255,255,255,.16)';g.lineWidth=1;g.stroke();
   for(const [la,lo] of dots){const p=proj(la,lo);if(p.z>0){g.fillStyle=`rgba(210,208,200,${.2+p.z*.5})`;g.fillRect(p.x-1,p.y-1,2,2)}}
-  const labels=[];
-  for(const [n,la,lo] of places){const p=proj(la,lo);if(p.z>0.05){const home=n==='Seattle'||n==='Chicago';const pulse=RM?0:Math.sin(gt*.08)*2;
-    g.fillStyle='#c5b087';g.beginPath();g.arc(p.x,p.y,4+pulse*.5,0,6.28);g.fill();
-    g.strokeStyle='rgba(197,176,135,.4)';g.beginPath();g.arc(p.x,p.y,9+pulse,0,6.28);g.stroke();
-    labels.push([n,p.x+12,p.y+4,p.z])}}
-  g.font='700 11px "Space Mono",monospace';g.fillStyle='#fff';
-  const taken=[];
-  for(const [n,x0,y0,z] of labels.sort((a,b)=>b[3]-a[3])){
-    const w=g.measureText(n).width; let y=y0;
-    const hit=()=>taken.some(([tx,ty,tw])=>Math.abs(y-ty)<13 && x0<tx+tw+6 && x0+w+6>tx);
-    if(hit()) y=y0-13; if(hit()) y=y0+14; if(hit()) continue;
-    g.globalAlpha=Math.min(1,z*2);g.fillText(n,x0,y);g.globalAlpha=1;taken.push([x0,y,w]);
-  }
+  for(const [n,la,lo] of places){const p=proj(la,lo);if(p.z>0.08){
+    g.fillStyle=`rgba(197,176,135,${.55+p.z*.35})`;g.beginPath();g.arc(p.x,p.y,2.4,0,6.28);g.fill();
+  }}
   if(!drag)rot+=vel; if(!RM||drag) requestAnimationFrame(drawG)}
 sizeG();addEventListener('resize',()=>{sizeG();if(RM)drawG()});drawG();
 new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){rot=0.75;if(RM)drawG();o.disconnect()}},{threshold:.3}).observe(gc);
 gc.addEventListener('pointerdown',e=>{drag=true;lx=e.clientX;gc.setPointerCapture(e.pointerId);if(RM)requestAnimationFrame(drawG)});
 gc.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-lx;lx=e.clientX;rot+=dx*.008;if(!RM)vel=Math.max(-.03,Math.min(.03,dx*.0015))});
 gc.addEventListener('pointerup',()=>{drag=false;if(!RM&&Math.abs(vel)<.002)vel=.004});
-const focus={iceland:-19,switzerland:8.2,italy:12.5,india:78,mexico:-102.5};
+const focus={iceland:-21.94,switzerland:7.75,india:88.36,mexico:-109.91,morocco:-8.01,canada:-115.57};
 $$('.flip').forEach(f=>f.addEventListener('click',()=>{f.classList.toggle('on');const lo=focus[f.dataset.place];if(lo!==undefined&&f.classList.contains('on')){const target=-lo*Math.PI/180;let d=((target-rot)%(2*Math.PI)+3*Math.PI)%(2*Math.PI)-Math.PI;const start=rot,t0=performance.now(),v0=vel;vel=0;
   (function step(t){const k=Math.min(1,(t-t0)/800),e=1-Math.pow(1-k,3);rot=start+d*e;if(RM)drawG();if(k<1)requestAnimationFrame(step);else vel=RM?0:.002})(t0)}}));
-
-/* ---------- music ---------- */
-const track={a:'Indie rock',s:"usually what's on",e:'🎸',c1:'#3a3732',c2:'#2a2824',acc:'#c5b087',d:222};
-let playing=false,pos=61,lastT=0;
-const art=$('#art'),player=$('#player');
-art.style.background=`linear-gradient(135deg,${track.c1},${track.c2})`;
-player.style.setProperty('--accent',track.acc);
-$('#tEnd').textContent=(Math.floor(track.d/60)+':'+String(track.d%60).padStart(2,'0'));
-const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
-function upd(){$('#progBar').style.width=(pos/track.d*100)+'%';$('#tNow').textContent=fmt(pos)}
-function setPlay(p){playing=p;player.classList.toggle('playing',p);$('#ppBtn').textContent=p?'⏸':'▶';$('#ppBtn').setAttribute('aria-label',p?'Pause':'Play');lastT=performance.now();if(p)requestAnimationFrame(tick)}
-function tick(t){if(!playing)return;pos+=(t-lastT)/1000;lastT=t;if(pos>=track.d)pos=0;upd();requestAnimationFrame(tick)}
-$('#ppBtn').addEventListener('click',()=>setPlay(!playing));
-$('#prog').addEventListener('click',e=>{const r=e.currentTarget.getBoundingClientRect();pos=(e.clientX-r.left)/r.width*track.d;upd()});
-upd();
 
 /* ---------- journey trajectory ---------- */
 const stages=[
   {e:'🏫',short:'High school',y:'Chicago suburbs',when:'Chicago suburbs',title:'High school',text:"I went to high school in the Chicago suburbs.",notes:[]},
   {e:'🎓',short:'College',y:'2020–24',when:'2020–2024 · University of Michigan',title:'University of Michigan',text:"I went to the University of Michigan.",notes:["B.S. in Computer Engineering","Master's in Electrical & Computer Engineering, 2023–24","Astronomy research assistant, undergrad","Software intern at Zwift, Long Beach, summer 2022"]},
-  {e:'🚀',short:'SpaceX',y:'Jul 2024',when:'July 2024 · Redmond, WA',title:'SpaceX',text:"I write flight software for Starlink satellites at SpaceX.",notes:["Software Engineer II, May 2026","Software RE for the Starlink satellites on Flight 12","Goddard Legacy panel at Michigan, March 2026"]},
+  {e:'🚀',short:'SpaceX',y:'Jul 2024',when:'July 2024 · Redmond, WA',title:'SpaceX',text:"I write flight software for Starlink satellites at SpaceX.",notes:["Software Engineer II, May 2026","Owned optical bus software: star trackers, satellite cameras, tile cameras, and other imaging products","Goddard Legacy panel at Michigan, March 2026"]},
   {e:'??',short:'Next: (??)',y:'',when:'',title:'Next: (??)',text:'',notes:[],future:true}];
 const traj=$('#traj'),tsvg=$('#trajSvg'),tbase=$('#trajBase'),tdone=$('#trajDone'),trk=$('#trajRocket');
 let tpts=[],tlens=[],ttotal=0,tcur=0,si=0,tanim=0,auto=null;
@@ -725,16 +593,6 @@ $('#stAuto').addEventListener('click',()=>auto?stopAuto():startAuto());
 tlayout();go(0,true);let trz;addEventListener('resize',()=>{clearTimeout(trz);trz=setTimeout(tlayout,120)});
 if(!RM)new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){o.disconnect();setTimeout(startAuto,700)}},{threshold:.5}).observe(traj);
 document.fonts&&document.fonts.ready.then(tlayout);
-
-/* ---------- facts ---------- */
-const facts=[
-  "The best thing in my life is my friends.",
-  "I go to the gym every day. I just like it.",
-  "I grew up moving around the US, and went to high school in the Chicago suburbs.",
-  "Scuba diving is the closest I've felt to being weightless.",
-  "I generally listen to indie and indie rock.",
-  "I could talk about space, and whether we're alone, for a long time."];
-let fi=0;$('#factBtn').addEventListener('click',()=>{const el=$('#fact');let n;do{n=Math.floor(Math.random()*facts.length)}while(n===fi);fi=n;el.classList.add('swap');setTimeout(()=>{el.textContent=facts[fi];$('#factN').textContent='A NOTE '+String(fi+1).padStart(2,'0');el.classList.remove('swap')},RM?0:220)});
 
 /* ---------- alien easter egg ---------- */
 const msg="> incoming...\n\n\"We picked up a signal from Seattle. Tell Neel hello, and that the offer to visit still stands.\"\n\n> end of transmission";
